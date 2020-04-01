@@ -1,0 +1,79 @@
+README
+
+ Created on: 2012/02/02
+     Author: Vis Lee
+             Lego Lin
+             
+
+This document describts how to build up and install DMS Virtual Disk Driver.
+
+
+=== Table of Contents
+
+
+
+
+
+
+=== 1. Introduction
+
+DMS Virtual Disk Driver (dms_vdd) - used to communicate to dms namenode and datanode, handle the reuqest from user get meta-data from namenode and write to datanode.
+
+DriverCore - the core of dms_vdd which run in kernel space.
+rs_include - the header file of rs
+UnitTest - additional module for testing dms_vdd
+UserDaemon - provide operations to control dms_vdd from userspace.
+
+
+=== 2. How to Build dms_vdd Modules
+
+	--- 2.1 Command Syntax
+	
+		specify -DDMS_DEBUG to compile dms_vdd with debug code.
+		
+		you can debug by module with easily echo your module flag into debug_flag to turn it on, ex:
+		echo "" > /proc/ccma/debug_flag
+		
+		module_list shows bellow:
+			#define DMSDEV_DBG_FLAG_BIT		0	/*dev_init or ioctl related*/
+			#define VOLUME_DBG_FLAG_BIT		1	/*volume manager dbg*/
+			#define IO_DBG_FLAG_BIT			2	/*io_req dbg*/
+			#define LB_DBG_FLAG_BIT			3	/*Logical Block dbg*/
+			#define CACHE_DBG_FLAG_BIT		4	/*cache dbg*/
+			#define OVW_DBG_FLAG_BIT		5	/*over written flag dbg*/
+			#define NN_DBG_FLAG_BIT			6	/*nn_req dbg*/
+			#define DN_DBG_FLAG_BIT			7	/*dn_req dbg*/
+			#define CM_DBG_FLAG_BIT			8	/*connection manager dbg*/
+			#define FSM_DBG_FLAG_BIT		9	/*finite state machine dbg*/
+			#define KP_DBG_FLAG_BIT			10	/*Kthread pool dbg*/
+			#define CMT_DBG_FLAG_BIT		11	/*nn committer dbg*/
+			#define DMP_DBG_FLAG_BIT		12	/*DMS Mem Pool dbg*/
+			#define DLIST_DBG_FLAG_BIT		13	/*DMS DList dbg*/
+		
+	--- 2.1 Command Syntax
+		
+		
+	
+
+=== 3. How to Build dms_vdd unit test Modules
+	--- 3.1 Command Syntax
+	you can easily make the target "utest" and the dms_vdd_utest module would be built under $(DMS_Client_BLKDEV)/bin
+	
+	
+	
+	
+=== 4. How to debug dms_vdd Modules
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

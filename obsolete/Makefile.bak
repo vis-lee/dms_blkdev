@@ -1,0 +1,128 @@
+
+# Makefile
+.PHONY:clean
+
+#################################
+#		Global configs			#
+#################################
+DMS_SUBDIRS = 
+
+
+#################################
+#			ENV PATH			#
+#################################
+RS_LIB_HEADER	= rs_include
+RS_LIB_PATH		= /usr/cloudos/common/lib/rs/libccma_c_rs_api.so
+
+
+
+#################################
+#		daemon 	configs			#
+#################################
+DAEMON_NAME		= dmsd
+DMSD_SRCS		= Client_Daemon_Skeleton.c Client_Daemon.c
+DMSD_OBJS		= Client_Daemon_Skeleton.o Client_Daemon.o
+
+DMSD_INCLUDES	= -I/usr/include -I$(RS_LIB_HEADER)
+DMSD_LIBS		= $(RS_LIB_PATH)
+
+DMSD_FLAGS	= -Wall -g $(DMSD_INCLUDES) $(DMSD_LIBS) -lpthread
+
+#----no_rs flags----#
+DMSD_CFLAGS		= $(DMSD_FLAGS)
+
+#---- rs ----#
+DMSD_RS_CFLAGS	= $(DMSD_CFLAGS) -DRS_SUPPORT=1
+
+
+#################################
+#			sub-modules			#
+#################################
+
+#####	Overwritten Flag ########
+#OVW_MOD_NAME = ovw_module
+#OVW_SUBDIRS = overwritten
+#OVW_INC_DIR = $(OVW_SUBDIRS)/inc
+#OVW_SRC_DIR = $(OVW_SUBDIRS)/src
+
+#####	CCMAKDBG ########
+#CCMAKDBG_MOD_NAME = ccmakdbg
+#CCMAKDBG_SUBDIRS  = ccmakdbg
+
+#####	CCMAKDBG CLI Engine ########
+#CCMAKDBG_CLI_MOD_NAME = ccmakdbg_cli
+#CCMAKDBG_CLI_SUBDIRS  = ccmakdbg_cli
+
+UTEST_MOD_NAME = utest
+UTEST_SRCDIR = UnitTest
+UTEST_INC_DIR = $(UTEST_SRCDIR)/include
+UTEST_SRC_DIR = $(UTEST_SRCDIR)/src
+
+
+# add dir to DMS_SUBDIRS
+#DMS_SUBDIRS += $(UTEST_SRC_DIR)
+
+#################################
+#		DMS VDD CONFIGS			#
+#################################
+#module name
+MODULE_NAME := dms_vdd
+
+$(MODULE_NAME)-objs := Test_Volume_Manager.o DMS_Dev.o Volume_Manager.o DMS_Mem_Pool.o #$(UTEST_MOD_NAME)/$(UTEST_MOD_NAME).o
+#LogicalBlockList.o 
+
+obj-m := $(MODULE_NAME).o
+
+
+
+#################################
+#			MAKE TAGS			#
+#################################
+
+install:
+	for dirs in $(DMS_SUBDIRS); do \
+		(cd $$dirs && make install); \
+    done
+	$(MAKE) -C/lib/modules/$(shell uname -r)/build M=$(PWD)	
+	
+check:
+	for dirs in $(DMS_SUBDIRS); do \
+		(cd $$dirs && make check); \
+    done
+	$(MAKE) C=1 -C/lib/modules/$(shell uname -r)/build M=$(PWD)	
+	
+dbg:
+	for dirs in $(DMS_SUBDIRS); do \
+		(cd $$dirs && make dbg); \
+    done
+	$(MAKE) -C/lib/modules/2.6.18-164.el5debug M=$(PWD)	
+	
+phy:
+	for dirs in $(DMS_SUBDIRS); do \
+		(cd $$dirs && make phy); \
+    done
+	$(MAKE) -C/lib/modules/2.6.18-194.8.1.el5xen/build M=$(PWD)	
+	
+clean:
+	rm -rf *.o *.ko *.symvers *.mod.c .*.cmd Module.markers modules.order .tmp_versions version.h
+	rm -rf $(DAEMON_NAME)
+	for dirs in $(DMS_SUBDIRS); do \
+		(cd $$dirs && $@); \
+    done
+
+
+#################################
+#	dmsd daemon on user space	#
+#################################
+dmsd_nors:
+	$(CC) -o $(DAEMON_NAME) $(DMSD_SRCS) $(DMSD_CFLAGS)
+	
+dmsd:
+	$(CC) -o $(DAEMON_NAME) $(DMSD_SRCS) $(DMSD_RS_CFLAGS)
+
+utest:
+	(cd $(UTEST_SRCDIR); $(MAKE); cd "..")
+	
+	
+	
+	

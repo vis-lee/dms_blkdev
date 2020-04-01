@@ -1,0 +1,44 @@
+README
+
+ Created on: 2012/1/10
+     Author: Vis Lee
+             Lego Lin
+             
+
+This document describes how to build up and install DMS Virtual Disk Driver.
+
+
+=== Table of Contents
+
+
+
+
+
+
+=== 1. Introduction
+
+
+
+=== 2. How to Build External Modules
+	--- 2.1 Command Syntax
+
+	
+=== 3. IO operation type
+	--- 3.1 READ
+			Get_Meta_data:
+				1. check cache
+			
+	--- 3.2 WRITE
+	--- 3.3 OVER_WRITE
+	
+=== 4. Debug message configuration
+	--- 4.1 You can specify RELEASE config in DMS_Debug.h
+	
+		DMS_DEBUG_FLAG controls the whole driver's print output level.
+		
+			levels:
+			0: print nothing, but error. RELEASE level.
+			1: print by conditions (including the debug flag condition which you can specify throgh procfs[TODO])
+			2: print all debug message of the module
+		
+		

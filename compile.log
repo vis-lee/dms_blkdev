@@ -1,0 +1,85 @@
+default target is release build
+for dirs in DriverCore UserDaemon; do \
+		(cd $dirs && make all); \
+    done
+make[1]: Entering directory `/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore'
+for dirs in ; do \
+		(cd $dirs && make all); \
+    done
+make -C/lib/modules/2.6.18-194.8.1.el5xen/build M=/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore	
+make[2]: Entering directory `/usr/src/kernels/2.6.18-194.8.1.el5-xen-x86_64'
+  LD      /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/built-in.o
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_VDDriver.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_VDDriver.c: In function ‘Print_Request_Info’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_VDDriver.c:169: warning: ISO C90 forbids mixed declarations and code
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_VDDriver.c: In function ‘Init_DMS_VDDriver’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_VDDriver.c:725: warning: label ‘nn_ip_fail’ defined but not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_Error.o
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume.c: In function ‘__DMS_Create_Request_Queue’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume.c:133: warning: label ‘create_disk_Q_recovery’ defined but not used
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume.c: In function ‘Init_DMS_Volume’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume.c:367: warning: assignment from incompatible pointer type
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume_Manager.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume_Manager.c: In function ‘Flush_IO_by_VolumeID’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume_Manager.c:617: warning: unused variable ‘volume’
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume_Manager.c: At top level:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Volume_Manager.c:51: warning: ‘vmgr_state’ defined but not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_Mem_Pool.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_Mem_Pool.c: In function ‘__Init_Pool’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DMS_Mem_Pool.c:199: warning: label ‘free_pool’ defined but not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DList.o
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Allocation_Flag.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Allocation_Flag.c: In function ‘Init_Allocation_Flag_Map’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Allocation_Flag.c:48: warning: unused variable ‘retcode’
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Allocation_Flag.c: At top level:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/include/DMS_Debug.h:22: warning: ‘dms_dbg_flag’ defined but not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/LogicalBlockList.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/LogicalBlockList.c: In function ‘Create_LogicalBlock_MetaData’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/LogicalBlockList.c:60: warning: ISO C90 forbids mixed declarations and code
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/LogicalBlockList.c: In function ‘Free_LogicalBlock_MetaData_from_LB_List_by_LBMD’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/LogicalBlockList.c:677: warning: ‘lbmd’ is used uninitialized in this function
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c: In function ‘Generate_All_LogicalBlocks’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c:234: warning: passing argument 1 of ‘Print_Simple_LogicalBlock_List’ discards qualifiers from pointer target type
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c: In function ‘__Get_Continuous_Range’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c:308: warning: passing argument 1 of ‘find_next_bit’ from incompatible pointer type
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c:312: warning: passing argument 1 of ‘find_next_zero_bit’ from incompatible pointer type
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c: In function ‘Commit_LB_to_DMS_IO’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/DIO.c:589: warning: value computed is not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/IO_Request.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/IO_Request.c: In function ‘Commit_DIO_to_IO_Request’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/IO_Request.c:243: warning: value computed is not used
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/IO_Request.c: In function ‘Release_IO_Request’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/IO_Request.c:389: warning: passing argument 2 of ‘Release_DList_and_User_Data’ from incompatible pointer type
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Driver_Core.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/include/DMS_Debug.h:22: warning: ‘dms_dbg_flag’ defined but not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Namenode_Protocol.o
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/include/DMS_Debug.h:22: warning: ‘dms_dbg_flag’ defined but not used
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c: In function ‘Commit_to_Namenode’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c:189: warning: unused variable ‘slbid’
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c:188: warning: unused variable ‘i’
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c: In function ‘Create_Namenode_Receiver’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c:367: warning: cast to pointer from integer of different size
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c: In function ‘Init_Metadata_Manager’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/Metadata_Manager.c:423: warning: format ‘%s’ expects type ‘char *’, but argument 4 has type ‘cip_t’
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/SSocket.o
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/SSocket.c: In function ‘Init_DMS_Node_Container’:
+/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/SSocket.c:1312: warning: passing argument 1 of ‘sprintf’ from incompatible pointer type
+  CC [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/SSockets_Manager.o
+  LD [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/dms_vdd.o
+  Building modules, stage 2.
+  MODPOST
+  CC      /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/dms_vdd.mod.o
+  LD [M]  /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/dms_vdd.ko
+make[2]: Leaving directory `/usr/src/kernels/2.6.18-194.8.1.el5-xen-x86_64'
+cp -u dms_vdd.ko ../bin
+make[1]: Leaving directory `/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore'
+make[1]: Entering directory `/mnt/windows/client_refactoring/DMS_Client_BLKDEV/UserDaemon'
+echo "!!do nothing but copy dmsd to bin dir for now... remember take me back when you finish kernel devel..."
+!!do nothing but copy dmsd to bin dir for now... remember take me back when you finish kernel devel...
+cp -u dmsd ../bin
+make[1]: Leaving directory `/mnt/windows/client_refactoring/DMS_Client_BLKDEV/UserDaemon'
+#copy files to bin_dir should triggered from here or pass the BIN_DIR to subdirs

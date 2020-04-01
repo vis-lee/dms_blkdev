@@ -1,0 +1,110 @@
+
+
+/**
+ *	This is a template for writing utest code.
+ */
+ 
+ 
+#include "DMS_Common.h"
+#include "UTest_Common.h"
+
+
+/********************************************************************************/
+/*																				*/
+/*							Global variables 									*/
+/*																				*/
+/********************************************************************************/
+
+char *T_MOD = "T: ";
+
+
+
+/********************************************************************************/
+/*																				*/
+/*								DEFINITIONS										*/
+/*																				*/
+/********************************************************************************/
+
+
+
+
+/********************************************************************************/
+/*																				*/
+/*							FUNCS Implementations								*/
+/*																				*/
+/********************************************************************************/
+
+int Test_Func(TWorker_t *tw)
+{
+
+	int retcode = DMS_OK;
+	Test_Workers_t tws = NULL;
+
+	if( IS_LEGAL(T_MOD, tw) &&
+			IS_LEGAL(T_MOD, tw->tws_mgr) )
+	{
+		int tid = 0;
+		unsigned int nr_elements = 0;
+
+		tid = tw->tid;
+		tws = tw->tws_mgr;
+		nr_elements = tws->ut_arg->nr_elements;
+
+		DMS_PRINTK(T_DBG, T_MOD, "tid = %d, nr_elements = %u \n", tid, nr_elements);
+
+
+
+	} else {
+
+		retcode = -DMS_FAIL;
+	}
+
+	if( CHECK_PTR(tws->done_func) ){
+		tws->done_func(tw, retcode);
+	}
+
+
+
+	return retcode;
+
+}
+
+
+
+
+/********************************************************************************/
+/*																				*/
+/*									Env APIs									*/
+/*																				*/
+/********************************************************************************/
+
+int Setup_TDList_Env(unsigned long param){
+
+	int retcode = DMS_OK;
+
+
+	return retcode;
+
+}
+
+void Teardown_TDList_Env(unsigned long param){
+
+
+
+}
+
+int Verify_Test_TDList_Result(unsigned long param){
+
+	int retcode = DMS_OK;
+
+
+	return retcode;
+}
+
+
+
+
+
+
+
+

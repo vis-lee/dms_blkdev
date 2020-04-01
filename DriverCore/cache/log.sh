@@ -1,0 +1,1 @@
+vim /var/log/messages

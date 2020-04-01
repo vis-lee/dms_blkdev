@@ -1,0 +1,1 @@
+cmd_/mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/built-in.o :=  rm -f /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/built-in.o; ar rcs /mnt/windows/client_refactoring/DMS_Client_BLKDEV/DriverCore/built-in.o
